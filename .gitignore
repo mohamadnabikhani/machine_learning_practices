@@ -1,0 +1,17 @@
+*.py[co]
+__pycache__
+pyvenv.cfg
+.venv
+venv/
+ENV/
+*.bak
+*.ckpt
+*.pyc
+.DS_Store
+.ipynb_checkpoints
+checkpoint
+logs/*
+tf_logs/*
+images/**/*.png
+my_*
+datasets/words

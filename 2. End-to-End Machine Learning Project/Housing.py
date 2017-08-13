@@ -21,6 +21,8 @@ def load_housing_data(housing_path=HOUSING_PATH):
     csv_path = os.path.join(housing_path, "housing.csv")
     return pd.read_csv(csv_path)
 
+housing = load_housing_data()
+
 import numpy as np
 
 def split_train_test(data, test_ratio):
@@ -43,3 +45,7 @@ def split_train_test_by_id(data, test_ratio, id_column, hash=hashlib.md5):
 from sklearn.model_selection import train_test_split
 
 train_set, test_set = train_test_split(housing, test_size=0.2, random_state=42)
+
+
+housing["income_cat"] = np.ceil(housing["median_income"] / 1.5)
+housing["income_cat"].where(housing["income_cat"] < 5, 5.0, inplace=True)
